@@ -9,7 +9,7 @@
         dest: "/opt/tomcat/webapps/ExAnsible.war"
         remote_src: no
 
-    - name: Restart Tomcat
-      systemd:
-        name: tomcat
-        state: restarted
+    - name: Restart Tomcat manually
+      shell: "/opt/tomcat/bin/shutdown.sh && /opt/tomcat/bin/startup.sh"
+      args:
+        executable: /bin/bash
